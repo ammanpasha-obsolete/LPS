@@ -4,17 +4,26 @@ namespace DAA_LPS
 {
     class Program
     {
-        
+        /// <summary>
+        /// Accepts a string and returns the length of the longest palindromic subsequence in the string.
+        /// </summary>
+        /// <param name="str">
+        /// String input provided by the user.
+        /// </param> 
+        /// <returns>
+        /// The length of the longest palindromic subsequence.
+        /// </returns>
         static int LPS(string str)
         {
             int n = str.Length;
             int i, j, len;
 
+            //Initializing a 2D array of size NxN to act as the matrix
             int[,] matrix = new int[n, n];
 
+            //Filling the diagnol with 1 because a string of length 1 will always have a LPS of length 1.
             for (i = 0; i < n; i++)
                 matrix[i, i] = 1;
-
 
             for (len = 2; len <= n; len++)
             {
@@ -36,9 +45,9 @@ namespace DAA_LPS
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter String Value : ");
+            Console.Write("Enter String Value : ");
             string str = Console.ReadLine();
-            Console.WriteLine("The length of the LPS is " + LPS(str));
+            Console.Write("The length of the LPS is " + LPS(str));
             Console.ReadKey();
         }
     }
